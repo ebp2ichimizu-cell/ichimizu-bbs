@@ -1,0 +1,47 @@
+// 変更案です。本番の既存ルールを取得して比較・統合した後に公開してください。
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function writer() {
+      return request.auth != null
+        && request.auth.uid == '7kewpVCwEMeWkxmzXEK6BRUsxXl1'
+        && request.auth.token.firebase.sign_in_provider == 'password';
+    }
+    function text(value, maximum) {
+      return value is string && value.size() >= 1 && value.size() <= maximum
+        && value.matches('[\\s\\S]*\\S[\\s\\S]*');
+    }
+    function category(id) {
+      return id is string && id.matches('[A-Za-z0-9_-]{1,80}')
+        && exists(/databases/$(database)/documents/bbsCategories/$(id))
+        && get(/databases/$(database)/documents/bbsCategories/$(id)).data.active == true;
+    }
+    match /bbsCategories/{categoryId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /bbsPosts/{postId} {
+      allow read: if true;
+      allow create: if writer()
+        && request.resource.data.keys().hasAll(['nickname','title','body','categoryId','createdAt'])
+        && request.resource.data.keys().hasOnly(['nickname','title','body','categoryId','createdAt'])
+        && text(request.resource.data.nickname,30)
+        && text(request.resource.data.title,100)
+        && text(request.resource.data.body,5000)
+        && category(request.resource.data.categoryId)
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+      match /replies/{replyId} {
+        allow read: if exists(/databases/$(database)/documents/bbsPosts/$(postId));
+        allow create: if writer()
+          && exists(/databases/$(database)/documents/bbsPosts/$(postId))
+          && request.resource.data.keys().hasAll(['nickname','body','createdAt'])
+          && request.resource.data.keys().hasOnly(['nickname','body','createdAt'])
+          && text(request.resource.data.nickname,30)
+          && text(request.resource.data.body,2000)
+          && request.resource.data.createdAt == request.time;
+        allow update, delete: if false;
+      }
+    }
+  }
+}

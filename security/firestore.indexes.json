@@ -1,0 +1,4 @@
+{
+  "indexes": [{"collectionGroup":"bbsPosts","queryScope":"COLLECTION","fields":[{"fieldPath":"categoryId","order":"ASCENDING"},{"fieldPath":"createdAt","order":"DESCENDING"}]}],
+  "fieldOverrides": []
+}
