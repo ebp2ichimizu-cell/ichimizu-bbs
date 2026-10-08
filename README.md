@@ -13,10 +13,10 @@ GitHub Pagesで配信する静的掲示板です。Firebase Authentication（メ
 - 投稿・返信の作成だけを許可するルール案。共通アカウントによる更新・削除・カテゴリー変更は拒否。
 - スマートフォン対応、フォームラベル、キーボード操作、通信エラーと再試行。
 
-## Firebaseの設定（未完了）
+## Firebaseの設定と残作業
 
 1. [Firebase Console](https://console.firebase.google.com/)で`ichimizu-bbs`を開き、プロジェクト設定 → 全般 → Webアプリ`ichimizu-bbs-web`から設定を取得します。このWebアプリとappIdはConsoleで確認できたため設定済みです。
-2. `js/config.js`の`apiKey`・`authDomain`を取得値で埋めます。`projectId`は`ichimizu-bbs`です。今回のConsole画面にはSDK設定の全文が表示されず、apiKeyとauthDomainは取得できていません。Webアプリの公開設定であり、パスワードやサービスアカウント秘密鍵は一切入れません。参考：[Firebase Web設定](https://firebase.google.com/docs/web/setup)。
+2. `js/config.js`の`apiKey`・`authDomain`はユーザー提供値を反映済みです。`projectId`は`ichimizu-bbs`、appIdも設定済みです。Webアプリの公開設定であり、パスワードやサービスアカウント秘密鍵は一切入れません。参考：[Firebase Web設定](https://firebase.google.com/docs/web/setup)。
 3. Authentication → Sign-in methodで「メール／パスワード」を有効にします。ユーザー一覧で共通アカウントのUIDが`7kewpVCwEMeWkxmzXEK6BRUsxXl1`であることを確認してください。メール・パスワードは利用者へ別途案内し、サイトのログイン画面で入力します。
 4. Authentication → 設定 → 承認済みドメインに、GitHub Pagesの実際の配信ドメインを登録します。カスタムドメインを使用する場合はそのドメインも登録してください。
 5. Firestoreの`(default)`データベースを用意します。現在のルールを保存し、[ルール変更案・管理者削除設計](security/README.md)を確認してから適用してください。**現在のルールはまだ取得できておらず、変更案は未適用です。**

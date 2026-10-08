@@ -2,6 +2,8 @@
 
 ## 実施済み
 
+- Firebase公開設定（apiKey・authDomain）はユーザー提供値を反映済み。Webアプリ`ichimizu-bbs-web`のappIdも設定済み。接続設定の必須項目チェックは成功。
+
 - Nodeによる入力検証4テスト：全て成功。正常な境界値、空白のみ、型不正、文字数超過、不正カテゴリー、余分な項目、未設定Firebaseを確認。
 - JavaScript構文検査、`git diff --check`：成功。
 - 実際のChromeでPC（1280px）、スマートフォン（390px・320px）を確認。横スクロールなし。PC／スマートフォンのスクリーンショットを目視確認。
@@ -12,7 +14,6 @@
 
 ## 未完了
 
-- Firebase公開設定（apiKey・authDomain）の入力。Webアプリ`ichimizu-bbs-web`のappIdはConsoleで確認し入力済み。
 - ConsoleのFirestore画面では「データベースの作成」が表示され、既存ルールは取得できませんでした。Authenticationではユーザー行と有効なログインプロバイダーが表示されませんでした。実際のプロジェクト状態の再確認が必要です。
 - 共通UIDがAuthenticationの実際の共通アカウントと一致することの確認。
 - 現在のFirestoreルールの取得、比較・統合、シミュレーター／Emulatorでのサーバー側検証と公開。
