@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#990e19">
+  <meta name="description" content="いちみず会の掲示板。カテゴリー別に投稿を閲覧し、ログインして投稿・返信できます。">
+  <title>いちみず会 掲示板</title>
+  <link rel="icon" href="./assets/bbs-logo.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#/" aria-label="いちみず会 掲示板のトップ">
+        <img src="./assets/bbs-logo.png" alt="いちみず会 BBSロゴ" width="76" height="76">
+        <span><small>いちみず会</small><strong>掲示板</strong></span>
+      </a>
+      <div class="account"><span id="auth-state">閲覧モード</span><a class="button light" href="#/login" id="login-link">ログイン</a><button id="logout" class="light" hidden>ログアウト</button></div>
+    </div>
+  </header>
+  <main id="main" class="container" tabindex="-1">
+    <section class="intro"><p class="eyebrow">ICHIMIZU BBS</p><h1>いちみず会の掲示板</h1><p>投稿はどなたでも閲覧できます。<br>投稿・返信には共通アカウントでのログインが必要です。</p></section>
+    <p id="status" class="notice" role="status" aria-live="polite">読み込み中…</p>
+    <div id="app"></div>
+    <noscript><p class="notice">掲示板の利用にはJavaScriptを有効にしてください。</p></noscript>
+  </main>
+  <footer class="container"><p>投稿・返信は一般公開されます。個人情報や非公開情報の掲載は控えてください。</p><a href="https://ebp2ichimizu-cell.github.io/Ichimizu-portal/">いちみず会 ポータルへ</a></footer>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
