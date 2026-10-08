@@ -1,4 +1,4 @@
-import {firebaseConfig,sharedAccountUid} from './config.js';
+import {firebaseConfig,sharedAccountUid} from './config.js?v=20261008-config1';
 import {LIMITS,validId,validateFields,configReady} from './validation.js';
 import {connect} from './firebase.js';
 
