@@ -9,7 +9,8 @@ service cloud.firestore {
     }
     function text(value, maximum) {
       return value is string && value.size() >= 1 && value.size() <= maximum
-        && value.matches('[\\s\\S]*\\S[\\s\\S]*');
+        // RE2の\\sはUnicode空白を網羅しないため、全角空白等も明示して除外する。
+        && value.matches('[\\s\\S]*[^\\s\\x{000B}\\x{0085}\\x{00A0}\\x{1680}\\x{2000}-\\x{200A}\\x{2028}\\x{2029}\\x{202F}\\x{205F}\\x{3000}\\x{FEFF}][\\s\\S]*');
     }
     function category(id) {
       return id is string && id.matches('[A-Za-z0-9_-]{1,80}')
