@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#990e19">
-  <meta name="description" content="いちみず会の掲示板。カテゴリー別に投稿を閲覧し、ログインして投稿・返信できます。">
+  <meta name="description" content="いちみず会BBS。気付きを共有し、「なるほど」を広げる掲示板です。">
   <title>いちみず会 掲示板</title>
   <link rel="icon" href="./assets/bbs-logo.png" type="image/png">
   <link rel="stylesheet" href="./style.css">
@@ -21,7 +21,33 @@
     </div>
   </header>
   <main id="main" class="container" tabindex="-1">
-    <section class="intro"><p class="eyebrow">ICHIMIZU BBS</p><h1>いちみず会の掲示板</h1><p>投稿はどなたでも閲覧できます。<br>投稿・返信には共通アカウントでのログインが必要です。</p></section>
+    <section class="intro" aria-labelledby="bbs-heading">
+      <p class="eyebrow">ICHIMIZU BBS</p>
+      <h1 id="bbs-heading">いちみず会の掲示板</h1>
+      <div class="bbs-purpose">
+        <h2>気付きを共有し、「なるほど」を広げる。</h2>
+        <p>ここは、現場での小さな発見や疑問、研究を読んで感じたことなどを気軽に持ち寄る場所です。</p>
+        <p>正解や完成された意見は必要ありません。異なる見方や認識の変化も、対話を通じて理解を深めるきっかけになります。</p>
+        <p>一人の「なるほど」が、誰かの次の実践につながることを目指します。</p>
+      </div>
+      <details class="bbs-guidelines">
+        <summary>投稿・利用にあたってのお願い</summary>
+        <div class="bbs-guidelines-body">
+          <h3>投稿について</h3>
+          <p>気付き、疑問、仮説、実践例などを自由に投稿してください。完成された意見である必要はありません。</p>
+          <h3>訂正・補足について</h3>
+          <p>誤りや認識の変化があった場合は、元の投稿と同じニックネームを使い、返信欄に「補足・訂正」と明記して追記してください。</p>
+          <h3>情報の取扱いについて</h3>
+          <p>業務上知り得た非公開情報や個人情報などは投稿しないでください。この掲示板の投稿と返信は誰でも閲覧できます。</p>
+          <h3>削除依頼について</h3>
+          <p>非公開情報や個人情報などを誤って掲載した場合は、速やかにLINEグループで管理者に削除を依頼してください。指定された複数の管理者が対応します。依頼時は投稿URLを伝え、問題の情報自体はLINEに転載しないでください。</p>
+          <h3>発言の位置付け</h3>
+          <p>投稿は個人の気付きや考えを共有するものであり、所属組織の公式見解を示すものではありません。</p>
+          <p class="guidelines-note">削除後も、すでに閲覧・保存された情報を回収できるとは限りません。投稿前に内容をご確認ください。</p>
+        </div>
+      </details>
+      <p class="bbs-access-note">投稿はどなたでも閲覧できます。投稿・返信には共通アカウントでのログインが必要です。</p>
+    </section>
     <p id="status" class="notice" role="status" aria-live="polite">読み込み中…</p>
     <div id="app"></div>
     <noscript><p class="notice">掲示板の利用にはJavaScriptを有効にしてください。</p></noscript>
